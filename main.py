@@ -10,8 +10,7 @@ def read_csv(path: str) -> pd.DataFrame:
     """
     Convert CSV file to Pandas DataFrame
 
-    FYI: Header looks like this:
-    Buch;Eintritt;Buch;Anrede - Privatperson;Akademisch - Privatperson;Vorname - Privatperson;Biername;Nachname;Individuelle Briefanrede;Unterkategorie;E-Mail;Straße;PLZ;Ort;Land;AH seit:;Studienfach;Geburtsdatum;Studiert in
+    See format of `data/demo.csv`
     """
     entry_year, district, discipline, birth_year, study_place = [], [], [], [], []
     with open(path) as csvfile:
@@ -48,8 +47,6 @@ if __name__ == '__main__':
     dir_name, file_name = os.path.split(os.path.realpath(__file__))
     df = read_csv(f"{dir_name}/data/demo.csv")
     # df = read_csv(f"{dir_name}/data/members.csv")
-    # stats.bar(df, "entry_year")
-    # stats.scatter(df, "entry_year")
     stats.scatter_place(df, "entry_year")
     stats.scatter_place(df, "entry_year", "Berlin")
     stats.scatter_place(df, "entry_year", "Karlsruhe")
