@@ -94,9 +94,9 @@ def scatter_place(df: pd.DataFrame, year_type: str, study_place="") -> None:
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.6, box.height])
-    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.35), ncol=3)
     data_text = ""
     plt.gcf().text(0.91, 0.75, data_text, fontsize=10)
-    plt.subplots_adjust(left=0.05, right=box.width - 0.02, top=0.95, bottom=0.08)
+    plt.subplots_adjust(left=0.05, right=0.98, top=0.95, bottom=box.height - 0.52)
 
     plt.show()
